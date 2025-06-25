@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Керам – топовый блогер Roblox & Minecraft (10M подписчиков!)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        .minecraft-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .bebas-font {
+            font-family: 'Bebas Neue', cursive;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1607513746994-51f730a44832?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .block-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .block-btn:hover {
+            transform: translateY(-5px);
+        }
+        .block-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .block-btn:hover::before {
+            left: 100%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::before {
+            background: #10b981;
+        }
+        .timeline-item:nth-child(even)::before {
+            background: #f59e0b;
+        }
+        .timeline-rail {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3b82f6, #10b981, #f59e0b);
+        }
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .pixel-border {
+            border-style: solid;
+            border-width: 4px;
+            border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0,0 L12,0 L12,12 L0,12 Z' fill='none' stroke='%233b82f6' stroke-width='4'/%3E%3C/svg%3E") 4;
+        }
+        .merch-item:hover .merch-overlay {
+            opacity: 1;
+        }
+        .meme-card {
+            transition: all 0.3s ease;
+        }
+        .meme-card:hover {
+            transform: rotate(-2deg) scale(1.03);
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 py-4 px-6 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center">
+            <div class="minecraft-font text-2xl md:text-3xl text-teal-400 flex items-center">
+                <span class="bg-gray-700 px-2 py-1 mr-1">К</span>
+                <span class="bg-gray-700 px-2 py-1 mr-1">Е</span>
+                <span class="bg-gray-700 px-2 py-1 mr-1">Р</span>
+                <span class="bg-gray-700 px-2 py-1 mr-1">А</span>
+                <span class="bg-gray-700 px-2 py-1">М</span>
+                <span class="ml-2 text-yellow-400 text-xl">10M</span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-6">
+            <a href="#about" class="hover:text-teal-400 transition">Мой путь</a>
+            <a href="#content" class="hover:text-teal-400 transition">Контент</a>
+            <a href="#fans" class="hover:text-teal-400 transition">Для фанатов</a>
+            <a href="#contact" class="hover:text-teal-400 transition">Контакты</a>
+        </div>
+        <button class="md:hidden text-2xl" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden bg-gray-800 absolute w-full z-40 md:hidden">
+        <div class="flex flex-col space-y-4 p-6">
+            <a href="#about" class="hover:text-teal-400 transition">Мой путь</a>
+            <a href="#content" class="hover:text-teal-400 transition">Контент</a>
+            <a href="#fans" class="hover:text-teal-400 transition">Для фанатов</a>
+            <a href="#contact" class="hover:text-teal-400 transition">Контакты</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="bebas-font text-4xl md:text-6xl mb-6 text-teal-400">
+                    Я — Керам
+                </h1>
+                <p class="minecraft-font text-lg md:text-xl mb-8 leading-relaxed">
+                    Я покорил Мёртвые Рельсы в Minecraft! 🚂🔥<br>
+                    10+ млн подписчиков, 20 млн комментариев и 500K лайков —<br>
+                    мой путь от нуля до легенды Rutube!
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="block-btn bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-md transition duration-300 minecraft-font">
+                        Смотреть видео
+                    </button>
+                    <button class="block-btn bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md transition duration-300 minecraft-font">
+                        Моя история
+                    </button>
+                    <button class="block-btn bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md transition duration-300 minecraft-font">
+                        Соцсети
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative floating">
+                    <img src="face.JPG" alt="Керам персонаж" class="w-64 md:w-96 h-auto">
+                    <div class="absolute -bottom-10 -right-10 bg-yellow-400 text-gray-900 px-4 py-2 rounded-md minecraft-font text-sm">
+                        10M subs!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Journey Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="bebas-font text-4xl md:text-5xl text-center mb-16 text-teal-400">
+                Мой путь
+            </h2>
+            
+            <div class="relative">
+                <!-- Timeline rail -->
+                <div class="timeline-rail hidden md:block"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Timeline item 1 -->
+                    <div class="timeline-item relative pt-10 md:pt-0 md:pr-10 md:text-right">
+                        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                            <h3 class="minecraft-font text-xl text-orange-400 mb-2">201X</h3>
+                            <p class="text-gray-300">Первое видео на Rutube (0 подписчиков)</p>
+                            <div class="mt-4">
+                                <span class="inline-block bg-gray-600 text-xs px-2 py-1 rounded">Начало</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty div for spacing -->
+                    <div class="hidden md:block"></div>
+                    
+                    <!-- Timeline item 2 -->
+                    <div class="hidden md:block"></div>
+                    <div class="timeline-item relative pt-10 md:pt-0 md:pl-10">
+                        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                            <h3 class="minecraft-font text-xl text-teal-400 mb-2">201X</h3>
+                            <p class="text-gray-300">Виральный ролик про Roblox (100K подписчиков)</p>
+                            <div class="mt-4">
+                                <span class="inline-block bg-blue-500 text-xs px-2 py-1 rounded">Прорыв</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline item 3 -->
+                    <div class="timeline-item relative pt-10 md:pt-0 md:pr-10 md:text-right">
+                        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                            <h3 class="minecraft-font text-xl text-yellow-400 mb-2">202X</h3>
+                            <p class="text-gray-300">Серия "Мёртвые Рельсы" взорвала Minecraft-комьюнити (1M → 10M)</p>
+                            <div class="mt-4">
+                                <span class="inline-block bg-green-500 text-xs px-2 py-1 rounded">Успех</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty div for spacing -->
+                    <div class="hidden md:block"></div>
+                    
+                    <!-- Timeline item 4 -->
+                    <div class="hidden md:block"></div>
+                    <div class="timeline-item relative pt-10 md:pt-0 md:pl-10">
+                        <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                            <h3 class="minecraft-font text-xl text-red-400 mb-2">2024</h3>
+                            <p class="text-gray-300">Рекорд — 11M просмотров на одном видео!</p>
+                            <div class="mt-4">
+                                <span class="inline-block bg-purple-500 text-xs px-2 py-1 rounded">Рекорд</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <img src="plot.jpg" alt="График роста" class="mx-auto w-full max-w-3xl">
+                <p class="minecraft-font text-sm mt-4 text-gray-400">График роста подписчиков в виде рельсов Minecraft</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="content" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="bebas-font text-4xl md:text-5xl text-center mb-16 text-teal-400">
+                Контент
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Video 1 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden transition duration-300 shadow-lg">
+                    <div class="relative">
+                        <img src="11.webp" alt="Мёртвые Рельсы" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 px-2 py-1 text-xs rounded">
+                            25:14
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="minecraft-font text-lg mb-2">Мёртвые Рельсы: Выживание на 100 дней</h3>
+                        <div class="flex justify-between text-gray-400 text-sm">
+                            <span>11M просмотров</span>
+                            <span>2 недели назад</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden transition duration-300 shadow-lg">
+                    <div class="relative">
+                        <img src="22.webp" alt="Roblox vs Minecraft" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 px-2 py-1 text-xs rounded">
+                            18:32
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="minecraft-font text-lg mb-2">Roblox vs Minecraft: Кто кого?</h3>
+                        <div class="flex justify-between text-gray-400 text-sm">
+                            <span>8.7M просмотров</span>
+                            <span>1 месяц назад</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden transition duration-300 shadow-lg">
+                    <div class="relative">
+                        <img src="33.jpg" alt="Секретные механики" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 px-2 py-1 text-xs rounded">
+                            14:56
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="minecraft-font text-lg mb-2">10 Секретных механик Minecraft, о которых вы не знали</h3>
+                        <div class="flex justify-between text-gray-400 text-sm">
+                            <span>6.2M просмотров</span>
+                            <span>2 месяца назад</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 rounded-lg p-8 max-w-4xl mx-auto">
+                <h3 class="bebas-font text-3xl text-center mb-8 text-orange-400">Моя статистика</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">👀</div>
+                        <h4 class="minecraft-font text-xl mb-2">11,000,000</h4>
+                        <p class="text-gray-400">просмотров</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">❤️</div>
+                        <h4 class="minecraft-font text-xl mb-2">500,000</h4>
+                        <p class="text-gray-400">лайков</p>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <div class="text-4xl mb-2">💬</div>
+                        <h4 class="minecraft-font text-xl mb-2">20,000,000</h4>
+                        <p class="text-gray-400">комментариев</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Fans Section -->
+    <section id="fans" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="bebas-font text-4xl md:text-5xl text-center mb-16 text-teal-400">
+                Для фанатов
+            </h2>
+            
+            <div class="text-center mb-12 max-w-3xl mx-auto">
+                <h3 class="minecraft-font text-2xl mb-4">Присоединяйся к моему миру!</h3>
+                <p class="text-gray-300">Стань частью сообщества Керам Team и получи эксклюзивный доступ к контенту, мерчу и многому другому!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Merch 1 -->
+                <div class="merch-item relative bg-gray-700 rounded-lg overflow-hidden">
+                    <img src="keram.png" alt="Футболка Керам Team" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="minecraft-font text-lg">Логотип</h3>
+                        <p class="text-gray-400 text-sm mb-2">канала</p>
+                        <p class="text-orange-400 minecraft-font">1,499 ₽</p>
+                    </div>
+                    <div class="merch-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded minecraft-font">
+                            Купить сейчас
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Discord -->
+                <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+                    <div class="text-6xl mb-4 text-indigo-400">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="minecraft-font text-xl mb-2">Discord сервер</h3>
+                    <p class="text-gray-400 mb-4">Присоединяйся к нашему сообществу!</p>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded minecraft-font">
+                        Присоединиться
+                    </button>
+                </div>
+                
+                <!-- Merch 2 -->
+                <div class="merch-item relative bg-gray-700 rounded-lg overflow-hidden">
+                    <img src="keram.jpg" alt="Кружка Керам" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="minecraft-font text-lg">Мокап</h3>
+                        <p class="text-gray-400 text-sm mb-2">канала</p>
+                        <p class="text-orange-400 minecraft-font">899 ₽</p>
+                    </div>
+                    <div class="merch-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded minecraft-font">
+                            Купить сейчас
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="bebas-font text-3xl text-center mb-8 text-orange-400">Игры фанатов</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="meme-card bg-gray-700 rounded-lg overflow-hidden">
+                    <img src="1.jpg" alt="Мем 1" class="w-full h-48 object-cover">
+                </div>
+                <div class="meme-card bg-gray-700 rounded-lg overflow-hidden">
+                    <img src="2.webp" alt="Мем 2" class="w-full h-48 object-cover">
+                </div>
+                <div class="meme-card bg-gray-700 rounded-lg overflow-hidden">
+                    <img src="3.webp" alt="Мем 3" class="w-full h-48 object-cover">
+                </div>
+                <div class="meme-card bg-gray-700 rounded-lg overflow-hidden">
+                    <img src="4.jpg" alt="Мем 4" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-12 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <div class="minecraft-font text-2xl text-teal-400 flex items-center">
+                        <span class="bg-gray-700 px-2 py-1 mr-1">К</span>
+                        <span class="bg-gray-700 px-2 py-1 mr-1">Е</span>
+                        <span class="bg-gray-700 px-2 py-1 mr-1">Р</span>
+                        <span class="bg-gray-700 px-2 py-1 mr-1">А</span>
+                        <span class="bg-gray-700 px-2 py-1">М</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Топовый блогер Roblox & Minecraft</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-teal-400 text-2xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-teal-400 text-2xl">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-teal-400 text-2xl">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-teal-400 text-2xl">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <h4 class="minecraft-font text-lg mb-2">Контакты для рекламы</h4>
+                    <a href="mailto:keram@example.com" class="text-teal-400 hover:underline">keram@example.com</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 Керам Team. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobileMenu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add floating animation to merch items on hover
+        const merchItems = document.querySelectorAll('.merch-item');
+        merchItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('floating');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('floating');
+            });
+        });
+    </script>
+</body>
+</html>
